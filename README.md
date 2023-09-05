@@ -1,12 +1,12 @@
 ## Psorghi Quantification Tool
 
-Pustule area quantification on single maize leaves utilizing a U-Net convolutional neural network model. This tool is intended for use on leaves imaged on a flatbed scanner with a blue background. Please see XX for more details on image acquisition.
+Pustule area quantification on single maize leaves utilizing a U-Net convolutional neural network model. This tool is intended for use on leaves imaged on a flatbed scanner with a blue background.
 
 ### Data Prep
 
 Acquire images of your maize leaves.
 
-Separate your leaves so that there is a single leaf on each image. You can use `separating_leaves.ipynb` (a Jupyter Python3 notebook) for this purpose. There are comments within this file on how to set it up and run for your images.
+Separate your leaves so that there is a single leaf on each image. You can use `separating_leaves.ipynb` (a Jupyter Python3 notebook) for this purpose. There are comments within this file on how to set it up and run for your images. I run Jupyter through Anaconda on my local machine.
 
 Place your cropped photos into their own folder.
 
@@ -39,4 +39,4 @@ output_tifs #folder where your results images will be saved. If not specified, t
 threshold #option to change the threshold for what is considered a pustule. If left blank, it will use the best threshold as determined by the validation set during the training of this U-Net model (Recommended). Default is XxX. Use a lower value to be stricter, or a higher value to be more lenient.
 ```
 
-Run time will depend on machine specs, but is fairly lightweight. 
+Run time will depend on machine specs, but should run fairly quickly.
