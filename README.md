@@ -32,7 +32,7 @@ Activate your new environment
 
 Typical usage:
 
-```python run_pustule_unet.py -mp path/to/model -pin path/to/inputs -pout path/output/csv/filename -pltout path/output/figures```
+```python run_pustule_unet.py -mp path/to/model/model_utc4-510 -pin path/to/inputs -pout path/output/csv/filename -pltout path/output/figures```
 
 Options:
 
