@@ -6,7 +6,7 @@ Pustule area quantification on single maize leaves utilizing a U-Net convolution
 
 Acquire images of your maize leaves.
 
-Separate your leaves so that there is a single leaf on each image. You can use `separating_leaves.ipynb` (a Jupyter Python3 notebook) for this purpose. There are comments within this file on how to set it up and run for your images. I run Jupyter through Anaconda on my local machine.
+Separate your leaves so that there is a single leaf on each image. You can use `separating_leaves.ipynb` (a Jupyter Python3 notebook) for this purpose. There are comments within this file on how to set it up and run for your images. For this script, I typically run it through Anaconda/Jupyter on my local machine.
 
 Place your cropped photos into their own folder.
 
