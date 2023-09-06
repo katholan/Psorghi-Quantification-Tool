@@ -61,4 +61,4 @@ Options:
         predicting. By default this script looks for best_threshold.npy within the model folder.
 
 
-Example statistics output is at `run1.csv` and example debugging figures are available at `leaf_plots/`. The original .tif images for these leaves are available at `raw_images`.
+Example statistics output is at `run1.csv` and example debugging figures are available at `leaf_plots/`. The original .tif images for these leaves are available at `raw_images`. For more raw images, please see our [image data repository](https://doi.org/10.25380/iastate.23669328) containing all images used during the training and testing of this model.
