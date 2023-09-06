@@ -1,6 +1,6 @@
 ## Psorghi Quantification Tool
 
-Pustule area quantification on single maize leaves utilizing a U-Net convolutional neural network model. This tool is intended for use on leaves imaged on a flatbed scanner with a blue background.
+Pustule area quantification on single maize leaves utilizing a U-Net convolutional neural network model. This tool is intended for use on leaves imaged on a flatbed scanner with a blue background. It runs a directory of leaf images through a U-Net neural network to create a segmentation mask of pustule vs. no pustule.
 
 ### Data Prep
 
@@ -18,7 +18,7 @@ Create a folder for your output `.tif` files. The `.tif` files will be the origi
 
 Clone this GitHub repository locally on your machine.
 
-```git clone REPOSITORY```
+```git clone https://github.com/katholan/Psorghi-Quantification-Tool.git```
 
 Create a conda environment with the provided `.yml` file.
 
@@ -30,13 +30,35 @@ Activate your new environment
 
 ### Running the code
 
-```python3 FILE -input_folder -output_csvs -output_tifs -threshold```
+Typical usage:
 
-```
-input_folder #folder containing your leaf images
-output_csvs #folder where your results files will be saved
-output_tifs #folder where your results images will be saved. If not specified, these will not be saved.
-threshold #option to change the threshold for what is considered a pustule. If left blank, it will use the best threshold as determined by the validation set during the training of this U-Net model (Recommended). Default is XxX. Use a lower value to be stricter, or a higher value to be more lenient.
-```
+```python run_pustule_unet.py -mp path/to/model -pin path/to/inputs -pout path/output/csv/filename -pltout path/output/figures```
 
-Run time will depend on machine specs, but should run fairly quickly.
+Options:
+
+    Required
+    -mp #Model Path (required). Path to the U-net model directory
+
+    -pin #Path to inputs (required). Path to directory that contains .tif images of leaves
+
+    -pout #Path to output .csv file (required). Path to directory that will contain
+        statistics calculated on each image. Output will be one row per image and one file per directory.
+
+
+    Optional
+    
+    -pltout #Path to output debugging figures (optional). If specified then figures with the
+        original image, mask, and overlaid mask will be saved to this directory. This
+        adds significantly to runtime. If no path specified, then plotting will be skipped, but
+        stats will still be written to the .csv file.
+        
+    -t #Value between 0 and 1. eg 0.2.
+        Threshold to use when turning the pustule probabilities into a binary mask. This is
+        optional and only recommended to change if you want to be more or less strict with what
+        is or is not determined to be a pusutle. If not specifed, then this script will use
+        a previously 'tuned' thresholed determined by a hold-out dataset. It is not recommended
+        to change this unless results with the tuned threshold are not ideal, or severely over/under
+        predicting. By default this script looks for best_threshold.npy within the model folder.
+
+
+Example statistics output is at `run1.csv` and example debugging figures are available at `leaf_plots/`. The original .tif images for these leaves are available at `raw_images`.
